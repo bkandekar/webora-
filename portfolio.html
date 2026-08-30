@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Webora</title>
+<meta name="description" content="Real project types, real industries — explore the kind of websites Webora builds for businesses across India.">
+<link rel="canonical" href="https://yourdomain.com/portfolio.html">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <nav aria-label="Primary">
+    <a href="index.html" class="logo"><span class="logo-mark"></span>Webora</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="index.html#process">Process</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#" class="btn btn-secondary btn-sm" data-open-quote>Get a Free Quote</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Contact Us</a>
+      <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="blog.html">Blog</a>
+  <a href="about.html">About</a>
+  <a href="contact.html" style="color:var(--blue);">Contact →</a>
+</nav>
+
+<section class="hero" style="padding-bottom:20px;">
+  <div class="wrap center" style="max-width:680px;margin:0 auto;">
+    <p class="eyebrow" style="justify-content:center;">Portfolio</p>
+    <h1 style="font-size:clamp(30px,4.5vw,46px);margin-top:10px;">Our Work Speaks for Itself.</h1>
+    <p class="lead" style="margin:14px auto 0;">Real project types, real industries. Here's a look at the kind of websites we build for growing businesses.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px;">
+  <div class="wrap">
+    <div class="filter-row" id="filterRow">
+      <button class="filter-chip active" data-filter="all">All</button>
+      <button class="filter-chip" data-filter="business">Business</button>
+      <button class="filter-chip" data-filter="healthcare">Healthcare</button>
+      <button class="filter-chip" data-filter="restaurant">Restaurant</button>
+      <button class="filter-chip" data-filter="beauty">Beauty</button>
+      <button class="filter-chip" data-filter="ecommerce">E-Commerce</button>
+      <button class="filter-chip" data-filter="professional">Professional Services</button>
+    </div>
+    <div class="folio-grid" id="folioGrid"></div>
+  </div>
+</section>
+
+<section class="section section--navy center">
+  <div class="wrap">
+    <h2>Like What You See?</h2>
+    <p class="lead" style="max-width:480px;margin:14px auto 0;">Let's build something just as considered for your business.</p>
+    <div class="hero-ctas" style="justify-content:center;margin-top:30px;">
+      <a href="#" class="btn btn-primary" data-open-quote>Get a Free Quote</a>
+      <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><span class="logo-mark"></span>Webora</a>
+      <p>We design and develop modern, fast and conversion-focused websites that help businesses build trust and grow online.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="WhatsApp" id="footerWa">WA</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="services/website-design.html">Website Design</a></li>
+        <li><a href="services/website-development.html">Website Development</a></li>
+        <li><a href="services/ecommerce.html">E-commerce</a></li>
+        <li><a href="services/seo.html">SEO</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul><li>hello@webora.in</li><li>+91 98765 43210</li><li>India</li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Webora. All Rights Reserved.</span>
+    <span><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a></span>
+  </div>
+</footer>
+
+<a href="#" class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.7 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1l1.8.9c.2.1.4.2.5.3.1.2.1.9-.1 1.6z"/></svg>
+</a>
+
+<script>
+const folio=[
+  {cat:"business",label:"Business",name:"NorthPeak Consulting",tags:"Business Website",grad:"linear-gradient(135deg,#2563EB,#0B1020)",link:"projects/project-1.html"},
+  {cat:"healthcare",label:"Healthcare",name:"Clariva Family Clinic",tags:"Business Website",grad:"linear-gradient(135deg,#3B82F6,#93C5FD)",link:"projects/project-2.html"},
+  {cat:"restaurant",label:"Restaurant",name:"Saffron & Spice",tags:"Business Website",grad:"linear-gradient(135deg,#0B1020,#2563EB)",link:"projects/project-3.html"},
+  {cat:"beauty",label:"Beauty",name:"Bloom Beauty Studio",tags:"Business Website",grad:"linear-gradient(135deg,#3B82F6,#0B1020)",link:"projects/project-4.html"},
+  {cat:"ecommerce",label:"E-Commerce",name:"UrbanNest Interiors",tags:"E-commerce Website",grad:"linear-gradient(135deg,#2563EB,#3B82F6)",link:"projects/project-5.html"},
+  {cat:"professional",label:"Professional Services",name:"Vertexa Legal Advisors",tags:"Business Website",grad:"linear-gradient(135deg,#111827,#2563EB)",link:"projects/project-6.html"}
+];
+document.getElementById('folioGrid').innerHTML = folio.map(f=>`
+  <div class="folio-card" data-category="${f.cat}">
+    <div class="folio-thumb">
+      <div class="thumb-bg" style="background:${f.grad};position:absolute;inset:0;"></div>
+      <div class="folio-overlay"><a href="${f.link}">View Case Study →</a></div>
+    </div>
+    <div class="folio-meta">
+      <span class="cat">${f.label}</span>
+      <h4>${f.name}</h4>
+      <p>${f.tags}</p>
+    </div>
+  </div>`).join('');
+</script>
+
+<script src="js/main.js"></script>
+</body>
+</html>

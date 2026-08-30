@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Cost Calculator — Webora</title>
+<meta name="description" content="Estimate your website cost in seconds. Select your website type, pages and features to get an instant price range from Webora.">
+<link rel="canonical" href="https://yourdomain.com/calculator.html">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .calc-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start;}
+  .calc-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:34px;}
+  .calc-group{margin-bottom:28px;}
+  .calc-group label.group-label{display:block;font-weight:800;font-size:14.5px;margin-bottom:12px;color:var(--navy);}
+  .calc-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .calc-tile{border:1.5px solid var(--line);border-radius:var(--r-sm);padding:14px 16px;font-weight:700;font-size:13.5px;text-align:left;transition:all var(--t-fast);cursor:pointer;}
+  .calc-tile.selected{border-color:var(--blue);background:#EFF4FF;color:var(--blue);}
+  .calc-tile-check{display:flex;align-items:center;gap:10px;}
+  .calc-tile-check .box{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;}
+  .calc-tile.selected .box{background:var(--blue);border-color:var(--blue);}
+
+  .result-card{background:var(--navy);color:#fff;border-radius:var(--r-lg);padding:34px;position:sticky;top:110px;}
+  .result-card .eyebrow{color:var(--blue-light);}
+  .result-amt{font-size:38px;font-weight:800;margin:14px 0 6px;line-height:1.1;}
+  .result-card p.sub{color:#94A3B8;font-size:13.5px;margin-bottom:24px;}
+  .result-breakdown{border-top:1px solid #1E2540;padding-top:18px;margin-top:6px;}
+  .result-breakdown div{display:flex;justify-content:space-between;font-size:13.5px;color:#CBD5E1;margin-bottom:10px;}
+  .result-breakdown div span:last-child{font-weight:700;color:#fff;}
+  .disclaimer{font-size:12.5px;color:#7C8296;margin-top:20px;line-height:1.6;}
+  @media(max-width:920px){.calc-wrap{grid-template-columns:1fr;} .result-card{position:static;}}
+  @media(max-width:600px){.calc-options{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav aria-label="Primary">
+    <a href="index.html" class="logo"><span class="logo-mark"></span>Webora</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html#process">Process</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#" class="btn btn-secondary btn-sm" data-open-quote>Get a Free Quote</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Contact Us</a>
+      <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="index.html#portfolio">Portfolio</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="blog.html">Blog</a>
+  <a href="about.html">About</a>
+  <a href="contact.html" style="color:var(--blue);">Contact →</a>
+</nav>
+
+<section class="hero" style="padding-bottom:20px;">
+  <div class="wrap center" style="max-width:640px;margin:0 auto;">
+    <p class="eyebrow" style="justify-content:center;">Cost Calculator</p>
+    <h1 style="font-size:clamp(30px,4.5vw,46px);margin-top:10px;">Estimate Your Website Cost.</h1>
+    <p class="lead" style="margin:14px auto 0;">Answer a few quick questions and get an instant estimated price range — no forms, no waiting.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px;">
+  <div class="wrap calc-wrap">
+    <div class="calc-card">
+
+      <div class="calc-group">
+        <label class="group-label">Website Type</label>
+        <div class="calc-options" id="typeOptions">
+          <button class="calc-tile" data-value="Business Website">Business Website</button>
+          <button class="calc-tile" data-value="Portfolio Website">Portfolio Website</button>
+          <button class="calc-tile" data-value="E-Commerce Website">E-Commerce Website</button>
+          <button class="calc-tile" data-value="Landing Page">Landing Page</button>
+          <button class="calc-tile" data-value="Blog Website">Blog Website</button>
+        </div>
+      </div>
+
+      <div class="calc-group">
+        <label class="group-label">Number of Pages</label>
+        <div class="calc-options" id="pageOptions">
+          <button class="calc-tile" data-value="1–5">1–5 Pages</button>
+          <button class="calc-tile" data-value="6–10">6–10 Pages</button>
+          <button class="calc-tile" data-value="11–20">11–20 Pages</button>
+          <button class="calc-tile" data-value="20+">20+ Pages</button>
+        </div>
+      </div>
+
+      <div class="calc-group" style="margin-bottom:0;">
+        <label class="group-label">Additional Features</label>
+        <div class="calc-options" id="featureOptions">
+          <button class="calc-tile calc-tile-check" data-value="SEO Optimization"><span class="box">✓</span>SEO Optimization</button>
+          <button class="calc-tile calc-tile-check" data-value="Blog Setup"><span class="box">✓</span>Blog Setup</button>
+          <button class="calc-tile calc-tile-check" data-value="WhatsApp Integration"><span class="box">✓</span>WhatsApp Integration</button>
+          <button class="calc-tile calc-tile-check" data-value="Contact Form"><span class="box">✓</span>Contact Form</button>
+          <button class="calc-tile calc-tile-check" data-value="Online Payments"><span class="box">✓</span>Online Payments</button>
+          <button class="calc-tile calc-tile-check" data-value="E-Commerce"><span class="box">✓</span>E-Commerce</button>
+          <button class="calc-tile calc-tile-check" data-value="Booking System"><span class="box">✓</span>Booking System</button>
+          <button class="calc-tile calc-tile-check" data-value="Website Maintenance"><span class="box">✓</span>Website Maintenance</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="result-card">
+      <p class="eyebrow">Estimated Investment</p>
+      <div class="result-amt" id="resultAmt">₹0 – ₹0</div>
+      <p class="sub">Based on your selections so far</p>
+      <div class="result-breakdown" id="resultBreakdown"></div>
+      <a href="#" id="calcWaLink" target="_blank" rel="noopener" class="btn btn-primary btn-block" style="margin-top:24px;">Get Your Exact Quote on WhatsApp →</a>
+      <p class="disclaimer">This is an estimated price. Final pricing may vary based on project requirements.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><span class="logo-mark"></span>Webora</a>
+      <p>We design and develop modern, fast and conversion-focused websites that help businesses build trust and grow online.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="WhatsApp" id="footerWa">WA</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="services/website-design.html">Website Design</a></li>
+        <li><a href="services/website-development.html">Website Development</a></li>
+        <li><a href="services/ecommerce.html">E-commerce</a></li>
+        <li><a href="services/seo.html">SEO</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul><li>hello@webora.in</li><li>+91 98765 43210</li><li>India</li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Webora. All Rights Reserved.</span>
+    <span><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a></span>
+  </div>
+</footer>
+
+<a href="#" class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.7 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.3-4.8-4.2-5-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1l1.8.9c.2.1.4.2.5.3.1.2.1.9-.1 1.6z"/></svg>
+</a>
+
+<script src="js/main.js"></script>
+<script src="js/calculator.js"></script>
+</body>
+</html>

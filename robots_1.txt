@@ -1,0 +1,8 @@
+# Webora — robots.txt
+# Allows all search engines to crawl the entire site.
+
+User-agent: *
+Allow: /
+
+# Replace the domain below with your real domain after deploying.
+Sitemap: https://yourdomain.com/sitemap.xml
